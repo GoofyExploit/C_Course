@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+void reverse(char *str) {
+    char *start = str;
+    char *end = str;
+    char temp;
+
+    // Find the end of the string
+    while (*end != '\0') {
+        end++;
+    }
+    end--;  // Move back to the last character
+
+    // Swap characters until pointers meet
+    while (start < end) {
+        temp = *start;
+        *start = *end;
+        *end = temp;
+        start++;
+        end--;
+    }
+}

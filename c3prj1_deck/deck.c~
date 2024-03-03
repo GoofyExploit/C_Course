@@ -1,0 +1,82 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <time.h>
+#include "deck.h"
+
+void print_hand(deck_t *hand) {
+    for (size_t i = 0; i < hand->n_cards; i++) {
+        print_card(*(hand->cards[i]));
+        printf(" ");
+    }
+}
+
+int deck_contains(deck_t *d, card_t c) {
+    for (size_t i = 0; i < d->n_cards; i++) {
+        if (d->cards[i]->value == c.value && d->cards[i]->suit == c.suit) {
+            return 1;  // Card found in the deck
+        }
+    }
+    return 0;  // Card not found in the deck
+}
+
+void shuffle(deck_t *d) {
+    size_t n = d->n_cards;
+    for (size_t i = 0; i < n; i++) {
+        size_t j = i + random() / (RAND_MAX / (n - i) + 1);
+        // Swap pointers at positions i and j
+        card_t *temp = d->cards[i];
+        d->cards[i] = d->cards[j];
+        d->cards[j] = temp;
+    }
+}
+
+void assert_full_deck(deck_t *d) {
+    for (size_t i = 0; i < 52; i++) {
+        card_t c = card_from_num(i);
+        assert(deck_contains(d, c) == 1);  // Each card should be in the deck exactly once
+    }
+}
+
+int main() {
+    // Seed the random number generator
+    srandom((unsigned)time(NULL));
+
+    // Create a deck of cards
+    deck_t my_deck;
+    my_deck.cards = malloc(52 * sizeof(card_t *));
+    my_deck.n_cards = 52;
+
+    for (size_t i = 0; i < 52; i++) {
+        my_deck.cards[i] = malloc(sizeof(card_t));
+        *(my_deck.cards[i]) = card_from_num(i);
+    }
+
+    // Print the original deck
+    printf("Original deck: ");
+    print_hand(&my_deck);
+    printf("\n");
+
+    // Shuffle the deck
+    shuffle(&my_deck);
+
+    // Print the shuffled deck
+    printf("Shuffled deck: ");
+    print_hand(&my_deck);
+    printf("\n");
+
+    // Check if the deck contains a specific card
+    card_t test_card = {VALUE_ACE, HEARTS};
+    printf("Deck contains Ace of Hearts: %d\n", deck_contains(&my_deck, test_card));
+
+    // Assert that the deck is full
+    assert_full_deck(&my_deck);
+
+    // Free allocated memory
+    for (size_t i = 0; i < 52; i++) {
+        free(my_deck.cards[i]);
+    }
+    free(my_deck.cards);
+
+    return 0;
+}
