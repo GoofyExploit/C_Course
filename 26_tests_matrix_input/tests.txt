@@ -1,9 +1,8 @@
-0_tests.txt
-1_tests.txt
-2_tests.txt
-3_tests.txt
-4_tests.txt
-5_tests.txt
+case1.txt
+case2.txt
+case3.txt
+case4.txt
+case5.txt
+FILE_NOT_EXIST
 
-1 2 3 4 5 6
-this_file_does_not_exist.txt
+MORE THAN EXPECT
