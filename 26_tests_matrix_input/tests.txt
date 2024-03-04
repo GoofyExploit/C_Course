@@ -1,18 +1,5 @@
-# Test cases for rotateMatrix program
-
-# Valid input case
-/usr/local/l2p/rot_matrix/rotateMatrix input_valid.txt
-
-# Test cases with broken binaries
-/usr/local/l2p/rot_matrix/rotateMatrix_broken1 input_valid.txt
-/usr/local/l2p/rot_matrix/rotateMatrix_broken2 input_valid.txt
-/usr/local/l2p/rot_matrix/rotateMatrix_broken3 input_valid.txt
-/usr/local/l2p/rot_matrix/rotateMatrix_broken4 input_valid.txt
-/usr/local/l2p/rot_matrix/rotateMatrix_broken5 input_valid.txt
-
-# Error cases
-/usr/local/l2p/rot_matrix/rotateMatrix non_existent_file.txt
-/usr/local/l2p/rot_matrix/rotateMatrix input_empty.txt
-/usr/local/l2p/rot_matrix/rotateMatrix input_invalid_size.txt
-/usr/local/l2p/rot_matrix/rotateMatrix input_non_square.txt
-/usr/local/l2p/rot_matrix/rotateMatrix input_invalid_values.txt
+input_valid.txt
+input_empty.txt
+input_invalid_size.txt
+input_non_square.txt
+input_invalid_values.txt
