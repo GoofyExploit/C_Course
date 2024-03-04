@@ -1,12 +1,9 @@
-input1.txt
-input2.txt
+input1.txt input2.txt
 input3.txt
 input4.txt
-input8.txt
-
 input5.txt
 input6.txt
 input7.txt
-nonexistent.txt
-nonexistent.txt, "w"
-(whatever)
+
+input8.txt
+input9.txt
