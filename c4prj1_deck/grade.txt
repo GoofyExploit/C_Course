@@ -1,8 +1,0 @@
-Grading at Mon 08 Apr 2024 04:58:12 PM UTC
-Compiling deck.c -> deck.o
-gcc: error: deck.c: No such file or directory
-gcc: fatal error: no input files
-compilation terminated.
-Compilation of deck.c failed
-
-Overall Grade: F
