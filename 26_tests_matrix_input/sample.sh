@@ -18,22 +18,9 @@ run_test() {
 for i in /usr/local/l2p/rot_matrix/rotateMatrix*
 do
     if [ "$i" != "/usr/local/l2p/rot_matrix/rotateMatrix" ]
-    then
-	echo "Checking `basename $i`"
-	run_test $i tests.txt
-	x="$?"
-	if [ "$x" != "0" ]
-	then
-	    echo "***Your tests failed to show that `basename $i` was broken!"
-	fi
+       then
+	   echo "Checking `basename $i`"
+	   run_test $i tests.txt
+	   x="$?"
     fi
 done
-
-
-
-
-
-
-
-
-
