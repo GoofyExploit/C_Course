@@ -1,16 +1,25 @@
 #include<stdio.h>
-void rotate(char matrix[10][10]){
-  if(matrix!=NULL){
-    char rotMatrix[10][10];
-    for(int i=0;i<10;i++){
-      for(int j=0;j<10;j++){
-	rotMatrix[j][10-1-i]=matrix[i][j];
-      }
+
+void rotate(char a[10][10])
+{
+  char temp;
+  for(int i=0;i<10;++i)
+    {
+      for(int j=i;j<10;++j)
+	{
+	  temp=a[i][j];
+	  a[i][j]=a[j][i];
+	  a[j][i]=temp;
+	}
     }
-    for(int i=0;i<10;i++){
-      for(int j=0;j<10;j++){
-	matrix[i][j]=rotMatrix[i][j];
-      }
+
+  for(int i=0;i<10;++i)
+    {
+      for(int j=0;j<5;++j)
+	{
+	  temp=a[i][j];
+	  a[i][j]=a[i][9-j];
+	  a[i][9-j]=temp;
+	}
     }
-  }
 }

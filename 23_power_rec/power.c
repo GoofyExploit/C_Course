@@ -1,14 +1,11 @@
-unsigned power(unsigned x, unsigned y){
-  if(x==0 && y==0){
+#include<stdio.h>
+#include<stdlib.h>
+
+unsigned power(unsigned x,unsigned y)
+{
+  if(y==0 || x==1)
     return 1;
-  }
-  else if(x==0){
+  if(x==0)
     return 0;
-  }
-  else if(x==1 || y==0){
-    return 1;
-  }
-  else{
-    return x*power(x,y-1);
-  }
+return x*power(x,y-1);
 }
